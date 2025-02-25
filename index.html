@@ -30,8 +30,6 @@
             text-align: center;
             scroll-snap-align: start; /* 滑動時對齊 */
             padding: 20px;
-            opacity: 0;  /* 頁面剛載入時透明 */
-            transition: opacity 1s ease-in-out; /* 淡入淡出動畫 */
         }
 
         /* 各區塊的背景顏色 */
@@ -40,11 +38,6 @@
         #projects { background-color: #FFC3A0; }
         #blog { background-color: #D5AAFF; }
         #contact { background-color: #85E3FF; }
-
-        /* 進入畫面時淡入 */
-        .visible {
-            opacity: 1 !important;
-        }
 
         /* 首頁特別設計：左右對齊 */
         .home-container {
@@ -111,7 +104,7 @@
 <body>
 
     <!-- 1️⃣ 首頁 -->
-    <section id="home" class="section visible">
+    <section id="home" class="section">
         <div class="home-container">
             <div class="home-text">
                 <h1>凃宛汝 Allie</h1>
@@ -128,7 +121,7 @@
     <section id="about" class="section">
         <h2>About Me</h2>
         <p class="content">
-            🎓 Master's Student in Computer Engineering at XYZ University<br>
+            🎓 就讀於中原大學電機系大四<br>
             🛠️ Skills: Python, C++, OpenCV, Embedded Systems<br>
             💡 Research: Hand Gesture Recognition using MediaPipe
         </p>
@@ -160,23 +153,6 @@
         <p>📧 <a href="mailto:allie@example.com">allie@example.com</a></p>
         <p>🔗 <a href="https://linkedin.com/in/allie">LinkedIn</a> | <a href="https://github.com/allie">GitHub</a></p>
     </section>
-
-    <!-- JavaScript: 監聽滾動事件，實現淡入淡出效果 -->
-    <script>
-        document.addEventListener("scroll", function() {
-            let sections = document.querySelectorAll(".section");
-            let scrollPosition = window.innerHeight * 0.5; // 當滾動超過50%視窗高度時觸發
-
-            sections.forEach(section => {
-                let rect = section.getBoundingClientRect();
-                if (rect.top < scrollPosition && rect.bottom > 0) {
-                    section.classList.add("visible");
-                } else {
-                    section.classList.remove("visible");
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
