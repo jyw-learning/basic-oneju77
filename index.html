@@ -25,12 +25,13 @@
         .section {
             height: 100vh; /* 讓每個區塊佔滿整個視窗 */
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             scroll-snap-align: start; /* 滑動時對齊 */
             padding: 20px;
+            opacity: 0;  /* 頁面剛載入時透明 */
+            transition: opacity 1s ease-in-out; /* 淡入淡出動畫 */
         }
 
         /* 各區塊的背景顏色 */
@@ -39,6 +40,31 @@
         #projects { background-color: #FFC3A0; }
         #blog { background-color: #D5AAFF; }
         #contact { background-color: #85E3FF; }
+
+        /* 進入畫面時淡入 */
+        .visible {
+            opacity: 1 !important;
+        }
+
+        /* 首頁特別設計：左右對齊 */
+        .home-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 900px;
+            width: 90%;
+            text-align: left;
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .home-image img {
+            width: 180px;
+            height: auto;
+            border-radius: 12px;
+        }
 
         /* 標題樣式 */
         h1 {
@@ -60,13 +86,6 @@
 
         a:hover {
             color: #555;
-        }
-
-        /* 頁面內的圖片樣式 */
-        img {
-            width: 150px;
-            border-radius: 50%;
-            margin-top: 10px;
         }
 
         /* 內容間距 */
@@ -92,11 +111,17 @@
 <body>
 
     <!-- 1️⃣ 首頁 -->
-    <section id="home" class="section">
-        <h1>凃宛汝 Allie </h1>
-        <img src="cat.png" alt="Cat's Photo">
-        <p class="content">一個天馬行空、喜好多元的大四學生</p>
-        <p>📧 <a href="mailto:allie@gmail.com">allie@gmail.com</a></p>
+    <section id="home" class="section visible">
+        <div class="home-container">
+            <div class="home-text">
+                <h1>凃宛汝 Allie</h1>
+                <p>一個天馬行空、喜好多元的大四學生</p>
+                <p>📧 <a href="mailto:allie@gmail.com">allie@gmail.com</a></p>
+            </div>
+            <div class="home-image">
+                <img src="cat.png" alt="Cat's Photo">
+            </div>
+        </div>
     </section>
 
     <!-- 2️⃣ 關於我 -->
@@ -135,6 +160,23 @@
         <p>📧 <a href="mailto:allie@example.com">allie@example.com</a></p>
         <p>🔗 <a href="https://linkedin.com/in/allie">LinkedIn</a> | <a href="https://github.com/allie">GitHub</a></p>
     </section>
+
+    <!-- JavaScript: 監聽滾動事件，實現淡入淡出效果 -->
+    <script>
+        document.addEventListener("scroll", function() {
+            let sections = document.querySelectorAll(".section");
+            let scrollPosition = window.innerHeight * 0.5; // 當滾動超過50%視窗高度時觸發
+
+            sections.forEach(section => {
+                let rect = section.getBoundingClientRect();
+                if (rect.top < scrollPosition && rect.bottom > 0) {
+                    section.classList.add("visible");
+                } else {
+                    section.classList.remove("visible");
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
