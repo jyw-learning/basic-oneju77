@@ -10,125 +10,131 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
         }
 
-        /* 背景顏色 & 版面 */
-        body {
-            background-color: #f5ebe0; /* 柔和的米色背景 */
-            color: #644e44; /* 深棕色字體 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        /* 整個頁面 */
+        html, body {
+            height: 100%;
+            scroll-snap-type: y mandatory; /* 滑動時鎖定到區塊 */
+            overflow-y: scroll;
+            scroll-behavior: smooth;
         }
 
-        /* 首頁容器 */
-        .container {
-            display: flex;
-            align-items: center;
-            max-width: 1100px;
-            gap: 50px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
-        /* 文字區 */
-        .text-section {
-            flex: 1;
-            text-align: left;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: normal;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        /* 圖片區 */
-        .image-section {
-            flex: 1;
+        /* 各個區塊 */
+        .section {
+            height: 100vh; /* 讓每個區塊佔滿整個視窗 */
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            scroll-snap-align: start; /* 滑動時對齊 */
+            padding: 20px;
         }
 
-        .image-section img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 12px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1.5s ease-out forwards 0.5s;
+        /* 各區塊的背景顏色 */
+        #home { background-color: #FFDDC1; }
+        #about { background-color: #FFABAB; }
+        #projects { background-color: #FFC3A0; }
+        #blog { background-color: #D5AAFF; }
+        #contact { background-color: #85E3FF; }
+
+        /* 標題樣式 */
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
         }
 
-        /* 社交媒體圖示 */
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
+        /* 連結按鈕 */
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
         }
 
-        .social-icons img {
-            width: 30px;
-            transition: transform 0.3s;
+        a:hover {
+            color: #555;
         }
 
-        .social-icons img:hover {
-            transform: scale(1.2);
+        /* 頁面內的圖片樣式 */
+        img {
+            width: 150px;
+            border-radius: 50%;
+            margin-top: 10px;
         }
 
-        /* 淡入動畫 */
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* 內容間距 */
+        .content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        /* 專案列表樣式 */
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- 文字內容 -->
-        <div class="text-section">
-            <h1>洪皓宇</h1>
-            <h2>Casper</h2>
-            <p>市場營銷助理</p>
-            <p>在 Davis Thorne and Partners 工作三年</p>
+    <!-- 1️⃣ 首頁 -->
+    <section id="home" class="section">
+        <h1>凃宛汝 Allie </h1>
+        <img src="cat.png" alt="Cat's Photo">
+        <p class="content">一個天馬行空、喜好多元的大四學生</p>
+        <p>📧 <a href="mailto:allie@gmail.com">allie@gmail.com</a></p>
+    </section>
 
-            <!-- 聯絡資訊 -->
-            <p>📧 hello@reallygreatsite.com.hk</p>
-            <p>📞 (852) 2234-5678</p>
-            <p>🔗 @reallygreatsite</p>
+    <!-- 2️⃣ 關於我 -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p class="content">
+            🎓 Master's Student in Computer Engineering at XYZ University<br>
+            🛠️ Skills: Python, C++, OpenCV, Embedded Systems<br>
+            💡 Research: Hand Gesture Recognition using MediaPipe
+        </p>
+    </section>
 
-            <!-- 社群媒體 -->
-            <div class="social-icons">
-                <img src="linkedin.png" alt="LinkedIn">
-                <img src="instagram.png" alt="Instagram">
-                <img src="facebook.png" alt="Facebook">
-                <img src="twitter.png" alt="Twitter">
-            </div>
-        </div>
+    <!-- 3️⃣ 我的作品 -->
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <ul class="project-list">
+            <li><a href="https://github.com/allie/gesture-control">🖐️ Hand Gesture Control for IoT Devices</a></li>
+            <li><a href="https://arxiv.org/abs/xxxxxxx">📄 Paper: Gesture Recognition using ESP32 & OpenCV</a></li>
+            <li><a href="https://github.com/allie/led-mqtt">💡 Smart LED Control with MQTT</a></li>
+        </ul>
+    </section>
 
-        <!-- 圖片區 -->
-        <div class="image-section">
-            <img src="profile1.jpg" alt="Casper">
-            <img src="profile2.jpg" alt="Casper">
-        </div>
-    </div>
+    <!-- 4️⃣ 部落格 -->
+    <section id="blog" class="section">
+        <h2>Latest Blog Posts</h2>
+        <ul class="project-list">
+            <li><a href="blog1.html">📝 Improving Gesture Recognition with OpenCV</a></li>
+            <li><a href="blog2.html">🏠 How I Built a Smart Home System with ESP32</a></li>
+            <li><a href="blog3.html">🎤 My Experience with Academic Conferences</a></li>
+        </ul>
+    </section>
+
+    <!-- 5️⃣ 聯絡方式 -->
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <p>📧 <a href="mailto:allie@example.com">allie@example.com</a></p>
+        <p>🔗 <a href="https://linkedin.com/in/allie">LinkedIn</a> | <a href="https://github.com/allie">GitHub</a></p>
+    </section>
 
 </body>
 </html>
