@@ -10,7 +10,7 @@
 
     <!-- 📌 主頁 -->
     <div id="page1" class="profile-card">
-        <img src="cat.png" alt="Profile Image" class="profile-img">
+        <img src="cat.png" alt="Profile Image" class="profile-img" onclick="showPage(3)">
         <h1 class="profile-name">凃宛汝 Allie</h1>
         <p class="profile-desc">一個天馬行空、喜好多元的大四學生</p>
         <button onclick="showPage(2)">Show More</button>
@@ -25,7 +25,27 @@
         <h2>Contact Me</h2>
         <p class="profile-contact">📧 <a href="mailto:allie@example.com">allie@example.com</a></p>
         <p class="profile-contact">🔗 <a href="https://linkedin.com/in/allie">LinkedIn</a> | <a href="https://github.com/allie">GitHub</a></p>
-        
+
+        <button onclick="showPage(1)">Back</button>
+    </div>
+
+    <!-- 📌 第三頁（最愛小說、電影、電視劇） -->
+    <div id="page3" class="profile-card hidden">
+        <h2>My Favorites</h2>
+        <div class="favorites-container">
+            <div class="favorite-item">
+                <h3>📖 最喜歡的小說</h3>
+                <img src="novel.jpg" alt="Favorite Novel">
+            </div>
+            <div class="favorite-item">
+                <h3>🎬 最喜歡的電影</h3>
+                <img src="movie.jpg" alt="Favorite Movie">
+            </div>
+            <div class="favorite-item">
+                <h3>📺 最喜歡的電視劇</h3>
+                <img src="tvshow.jpg" alt="Favorite TV Show">
+            </div>
+        </div>
         <button onclick="showPage(1)">Back</button>
     </div>
 

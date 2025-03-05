@@ -51,6 +51,40 @@ html, body {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Favorites 頁面 */
+.favorites-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.favorite-item {
+    text-align: center;
+    width: 30%;
+}
+
+.favorite-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 懸停時圖片放大 */
+.favorite-item img:hover {
+    transform: scale(1.1);
+}
+
+/* 讓圖片可點擊進入新頁面 */
+.profile-img {
+    cursor: pointer;
+}
+
+
 /* 懸停時圖片放大 */
 .profile-img:hover {
     transform: scale(4);
