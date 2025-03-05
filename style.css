@@ -67,8 +67,9 @@ html, body {
 
 .favorite-item img {
     width: 100%;
-    max-width: 200px;
-    height: auto;
+    max-width: 250px;
+    height: 160px;
+    object-fit: cover; /* 讓圖片填滿不變形 */
     border-radius: 10px;
     margin-top: 10px;
     transition: transform 0.3s ease-in-out;
@@ -85,9 +86,19 @@ html, body {
 }
 
 
-/* 懸停時圖片放大 */
+/* 懸停時放大全螢幕 */
 .profile-img:hover {
-    transform: scale(4);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    object-fit: contain; /* 確保圖片完整顯示 */
+    background: rgba(0, 0, 0, 0.8); /* 加深背景，提升對比 */
+    z-index: 1000; /* 確保顯示在最上層 */
+    border-radius: 0; /* 讓全螢幕圖片沒有圓角 */
+    transition: transform 0.3s ease-in-out;
 }
 
 /* 標題樣式 */
