@@ -106,9 +106,13 @@ h1, h2 {
 
 /* 簡介文字 */
 .profile-desc, .more-info, .profile-contact {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #444;
-    margin: 15px 0;
+    margin: 5px 0;
+}
+
+.about-section {
+    margin-bottom: 10px; /* 只影響 About Me 的底部間距 */
 }
 
 /* 按鈕 */
@@ -120,7 +124,7 @@ button {
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 10px;
     transition: background 0.3s;
 }
 
