@@ -40,6 +40,14 @@ html, body {
     display: none;
 }
 
+.about-me {
+    margin-bottom: 50px; /* 增加底部間距 */
+}
+
+.contact-me {
+    margin-top: 50px; /* 增加頂部間距 */
+}
+
 /* 個人照片（放大到更顯眼） */
 .profile-img {
     width: 40%; /* 讓圖片更大 */
