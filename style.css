@@ -76,8 +76,6 @@ html, body {
     transition: transform 0.3s ease-in-out;
 }
 
-
-
 /* 懸停時圖片放大 */
 .favorite-item img:hover {
     transform: scale(1.1);
@@ -87,7 +85,6 @@ html, body {
 .profile-img {
     cursor: pointer;
 }
-
 
 /* 懸停時放大 */
 .profile-img:hover {
