@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 /* 整個頁面背景 */
@@ -17,29 +18,32 @@ html, body {
 
 /* 個人簡介卡片 */
 .profile-card {
-    background: rgba(255, 255, 255, 0.85); /* 白色但透明一點 */
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 80vw;  /* 80% 的視窗寬度 */
-    height: calc(80vw * 9 / 16); /* 16:9 比例 */
-    max-width: 900px; /* 最大寬度 */
-    max-height: 506px; /* 16:9 高度對應 */
+    width: 80vw;
+    height: calc(80vw * 9 / 16);
+    max-width: 900px;
+    max-height: 506px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
     border: 2px solid #ddd;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s forwards;
+    position: absolute;
+    opacity: 1;
 }
 
-/* 個人照片 */
+/* 頁面切換時隱藏 */
+.hidden {
+    display: none;
+}
+
+/* 個人照片（放大到更顯眼） */
 .profile-img {
-    width: 30%; /* 讓圖片大小根據卡片寬度縮放 */
-    max-width: 180px; /* 限制最大寬度 */
+    width: 40%; /* 讓圖片更大 */
+    max-width: 250px;
     height: auto;
     border-radius: 50%;
     object-fit: cover;
@@ -52,15 +56,14 @@ html, body {
     transform: scale(1.1);
 }
 
-/* 姓名 */
-.profile-name {
-    font-size: 2em;
+/* 標題樣式 */
+h1, h2 {
     color: #333;
 }
 
 /* 簡介文字 */
-.profile-desc {
-    font-size: 1.1em;
+.profile-desc, .more-info, .profile-contact {
+    font-size: 1.2em;
     color: #444;
     margin: 15px 0;
 }
@@ -74,37 +77,10 @@ button {
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px; /* 增加與上方內容的距離 */
+    margin-top: 20px;
     transition: background 0.3s;
 }
 
 button:hover {
     background-color: #005599;
-}
-
-/* 更多資訊 (預設隱藏) */
-.hidden {
-    display: none;
-}
-
-/* "About Me" 和 "Contact Me" 的標題樣式 */
-h2 {
-    margin-top: 30px; /* 增加與上方 Show More 按鈕的距離 */
-    font-size: 1.5em;
-    color: #333;
-}
-
-/* 文字樣式 */
-.profile-contact, .more-info p {
-    font-size: 1.1em;
-    color: #444;
-    margin-top: 15px; /* 增加段落間距 */
-}
-
-/* 進場動畫 */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

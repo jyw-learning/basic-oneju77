@@ -1,14 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const showMoreBtn = document.getElementById("showMoreBtn");
-    const moreInfo = document.getElementById("moreInfo");
+function showPage(pageNumber) {
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.add("hidden");
 
-    showMoreBtn.addEventListener("click", function () {
-        if (moreInfo.classList.contains("hidden")) {
-            moreInfo.classList.remove("hidden");
-            showMoreBtn.textContent = "Show Less";
-        } else {
-            moreInfo.classList.add("hidden");
-            showMoreBtn.textContent = "Show More";
-        }
-    });
-});
+    document.getElementById("page" + pageNumber).classList.remove("hidden");
+}

@@ -8,27 +8,26 @@
 </head>
 <body>
 
-    <!-- 個人簡介卡片 -->
-    <section id="home" class="section">
-        <div class="profile-card">
-            <img src="cat.png" alt="Allie's Photo" class="profile-img">
-            <h1 class="profile-name">凃宛汝 Allie</h1>
-            <p class="profile-desc">一個天馬行空、喜好多元的大四學生</p>
-            <p class="profile-contact">📧 <a href="mailto:allie@gmail.com">allie@gmail.com</a></p>
+    <!-- 📌 主頁 -->
+    <div id="page1" class="profile-card">
+        <img src="cat.png" alt="Profile Image" class="profile-img">
+        <h1 class="profile-name">凃宛汝 Allie</h1>
+        <p class="profile-desc">一個天馬行空、喜好多元的大四學生</p>
+        <button onclick="showPage(2)">Show More</button>
+    </div>
 
-            <button id="showMoreBtn">Show More</button>
+    <!-- 📌 第二頁（About Me & Contact Me） -->
+    <div id="page2" class="profile-card hidden">
+        <h2>About Me</h2>
+        <p class="more-info">🎓 就讀於中原大學電機系大四</p>
+        <p class="more-info">🛠️ Skills: Python, C</p>
 
-            <div id="moreInfo" class="hidden">
-                <h2>About Me</h2>
-                <p>🎓 就讀於中原大學電機系大四</p>
-                <p>🛠️ Skills: Python, C</p>
-
-                <h2>Contact Me</h2>
-                <p>📧 <a href="mailto:allie@gmail.com">allie@gmail.com</a></p>
-                <p>🔗 <a href="https://linkedin.com/in/allie">LinkedIn</a> | <a href="https://github.com/oneju77">GitHub</a></p>
-            </div>
-        </div>
-    </section>
+        <h2>Contact Me</h2>
+        <p class="profile-contact">📧 <a href="mailto:allie@gmail.com">allie@gmail.com</a></p>
+        <p class="profile-contact">🔗 <a href="https://linkedin.com/in/allie">LinkedIn</a> | <a href="https://github.com/allie">GitHub</a></p>
+        
+        <button onclick="showPage(1)">Back</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
